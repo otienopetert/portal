@@ -1,0 +1,171 @@
+{% extends 'staff/main.html '%}
+
+{% block content %}
+
+
+
+<div class="container" align="center">
+
+  <h1><a href="#" class="btn btn-warning btn-lg"> CATEGORY DASHBOARD FOR ADMIN</a></h1>
+      {% if messages %}
+       {% for message in messages %}
+        <div style="margin: 60px;" class="alert alert-{{ message.tags }} dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+       {% endfor %}
+     {% endif %}
+              
+  <table class="table">
+    <thead>
+      <tr>
+
+        
+        <th>Id</th>
+        <th>citizenShip</th>
+        <th>Rent</th>
+        <th>Tax</th>
+        <th>Authority</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+  {% for c in c %}
+    <tr>
+    <td>{{c.id}}</td>
+    <td><a href="{{ c.citizenship.url }}" class="btn btn-secondary btn-sm">citizenShip</a></td>
+    <td><a href="{{ c.rent.url }}" class="btn btn-secondary btn-sm">Rent</a></td>
+    <td><a href="{{ c.tax.url }}" class="btn btn-secondary btn-sm">Tax</a></td>
+    <td><a href="{{ c.authority.url }}" class="btn btn-secondary btn-sm">Authority</a></td>
+    <td><a href="{% url 'view_uploaddocuments' c.customer %}" class="btn btn-secondary btn-sm">view application</a></td>
+    <td><a href="{%  url 'instruction-mail' c.customer %}"  class="btn btn-info btn-lg">send mail</a></td><!--data-toggle="modal" data-target="#form_sendmail"-->
+    <td><a href="{% url 'verify-request' c.customer %}" class="btn btn-info  btn-lg">verify</a></td>
+    <td><a href="{% url 'delete_crequest' c.id %}" class="btn btn-info btn-lg">delete</a></td>
+    
+
+
+    </tr>
+{% endfor %}
+
+  </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Modal Add business category -->
+<div class="modal fade" id="form_sendmail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Send Instruction Mail To Customer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+      <div class="modal-body">
+
+        <form  method="post" action="">
+            {% csrf_token %}
+         <div class="form-group">
+            <label>customer email</label>
+            <input type="text" class="form-control" name="name" value="{{customer.mail}}">
+            <small class="form-text text-muted"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Email Body</label>
+            <input type="text" class="form-control" name="message" placeholder="Enter Instruction message">
+            <small class="form-text text-muted"></small>
+          </div>
+
+          <!--<div class="form-group">
+            <label for="description"> Business-Category Description</label>
+            <input type="text" class="form-control" name="description" placeholder="Enter Description">
+            <small class="form-text text-muted"></small>
+          </div>-->
+
+<button type="submit" class="btn btn-success">save</button>          
+      </form>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  var form_fields = document.getElementsByTagName('input')
+
+    for (var field in form_fields){
+    form_fields[field].className += 'form-control'
+    form_fields[field].required;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

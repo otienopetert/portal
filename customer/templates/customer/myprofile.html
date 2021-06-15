@@ -1,0 +1,95 @@
+{% extends 'customer/main.html '%}
+
+
+
+{% block content %}
+{% load static %}
+
+<div class="row">
+	
+<div class="col-md-4">
+	<div class="card" style="width:200px">
+  <img class="card-img-top" src="{{request.user.customer.profile_pic.url}}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">John Doe</h4>
+    <p class="card-text">Some example text.</p>
+    <a href="{% url 'password_change' %}" class="btn btn-primary">Change Password</a>
+  </div>
+</div>
+</div><!--col-md-4-->
+
+
+<div class="col-md-4">
+	<form action="{% url 'myprofile' %}" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+    {{form.as_p}}
+<input type="submit" name="" class="btn btn-success form-control" value="Update">
+
+</form>
+	
+</div><!--col-md-4-->
+<div class="col-md-4"></div><!--col-md-4-->
+
+</div>
+
+
+
+<script type="text/javascript">
+  var form_fields = document.getElementsByTagName('input')
+
+    for (var field in form_fields){
+    //form_fields[field].className += 'form-control'
+    form_fields[field].required;
+  }
+ form_fields[3].placeholder='Enter First Name';
+  form_fields[3].className='form-control';
+
+ form_fields[4].placeholder='Enter Middle Name';
+ form_fields[4].className='form-control';
+ form_fields[5].placeholder='Enter Last Name';
+ form_fields[5].className='form-control';
+ form_fields[6].placeholder='Enter Phone Number';
+ form_fields[6].className='form-control';
+ form_fields[7].placeholder='Enter Email';
+ form_fields[7].className='form-control';
+  /*
+form_fields[1].placeholder='Enter First Name';
+form_fields[3].placeholder='Enter Last Name';
+form_fields[4].type='email';
+form_fields[6].placeholder='Enter Last Email';
+form_fields[5].type='email';
+*/
+form_fields[7].name='email';
+form_fields[8].type='date';
+form_fields[8].className='form-control';
+
+</script>
+
+
+
+
+
+
+
+<!--
+<div class="media">
+  <img src="{{request.user.customer.profile_pic.url}}" class="align-self-start mr-3" style="width:60px">
+  <div class="media-body">
+    <h4>Media Top</h4>
+    <p>Lorem ipsum...</p>
+
+
+
+
+<form action="{% url 'myprofile' %}" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+    {{form.as_p}}
+<input type="submit" name="" class="btn btn-success form-control">
+
+</form>
+
+
+  </div>
+</div>
+-->
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'admin/main.html '%}
+
+{% block content %}
+
+
+
+
+
+
+
+<h5 class="text-info">Update Business Category</h5>
+
+
+
+
+
+
+<div class="row">
+	
+
+
+    <div class="col-md-6">
+
+
+	     <div class="card card-body container">
+
+
+
+<form action="{% url 'update_bc' bc.id %}" method="POST">
+	{% csrf_token %}
+
+    {{form_bc.as_p}}
+	
+<a href="{% url 'managebc' %}" class="btn btn-warning">cancel
+</a>
+<input type="submit" name="confirm" class="btn btn-danger btn-sm" value="update">
+</form>
+
+
+        </div>
+
+   </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

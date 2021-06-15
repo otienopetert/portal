@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+
+	<title>PDF TEST</title>
+
+
+	<!--<style>
+    @page {
+        size: letter landscape;
+        margin: 2cm;
+    }
+</style>-->
+
+</head>
+<body>
+	<div class="container">
+		<h1 style="text-align: right;">Application Number : <u>46941</u></h1> 
+<span style="text-align: left;"><img src="{{ customerdetails.logo.path }}" height='100px' class="img-fluid">
+</span>
+<!--<h1 style="text-align: center;text-shadow: 3px;color: green;">BUSINESS LICENSE PORTAL</h1>-->
+
+<hr>
+<h1 style="text-align: center;">Application for New Business License</h1>
+
+<span style="text-align: left;"><img src="{{ customerdetails.profile_pic.path }}" height='100px' class="img-fluid">
+</span>
+<!--<p style="font-size: 14px;">1. Jina la Mwombaji (Taja kama ni kampuni, Jina la biashara au mtu binafsi)(Name of applicant-Co: or natural person)</p>
+<p style="font-size: 14px;text-decoration: underline;text-transform: uppercase;">
+{{customerdetails.fname}}</p>
+{{ customerdetails.profile_pic.url }}
+{{ customerdetails.profile_pic.path }}
+{{ customerdetails.profile_pic }}-->
+<img src="{% static '/images/layout_set_logo.png' %}">
+
+
+<div style="font-size: 14px;">
+	
+
+<p>SECTION 1: PERSONAL DETAILS</p>
+
+<p>First Name : {{customerdetails.fname}}</p>
+
+<p>Middle Name : {{customerdetails.mname}}</p>
+
+<p>Last Name : {{customerdetails.lname}}</p>
+
+<p>Date of Birth : (DD/MM/YYYY) {{customerdetails.dob}}</p>
+
+<p>Nationality (Citizen/Foreign): {{applicantdetails.nationality}}</p>
+
+
+<p>Address (Residential)</p>
+
+<p>House Number :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plot No :</p>
+
+
+
+<p>Block No :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Road :</p>
+
+
+<p>Street : Kaburi Moja&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SubVillage : Not Applicable</p>
+
+<p>Village : Ulongoni A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ward : Gongolamboto</p>
+<p>District : Ilala Municipal Council&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Region : Dar Es Salaam</p>
+
+<p>P.O. Box :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Postal City :</p>
+<p>Phone No    0769490287      Email address  otienopetert@gmail.com</p>
+<h1>SECTION 2: BUSINESS INFORMATION</h1>
+<p>Type of Application:(INDIVIDUAL/PROPRIETORSHIP/PARTNERSHIP/LIMITED COMPANY)    Individual</p>
+<p>Line of Business being applied for : Catering Services</p>
+<p>Place of business/profession :</p>
+<p>House Number :</p>
+<p>Plot No :</p>
+<p>Block No :</p>
+<p>Road: :</p>
+<p>Street : Kaburi Moja</p>
+<p>SubVillage : Not Applicable</p>
+<p>Village : Ulongoni A</p>
+<p>Ward : Gongolamboto</p>
+<p>District : Ilala Municipal Council</p>
+<p>Region : Dar Es Salaam</p>
+<p>P.O. Box :</p>
+<p>Postal City :</p>
+<p>Reg/ Cert. of Incorp. No :</p>
+<p>Business Name :peter thomas otieno</p>
+<p>Share Percent Local % : 0</p>
+<p>Share Percent Foreign % : 0</p>
+<h1>TIN No : 123-123-123</h1>
+<p>Director's/ Manager's Name : peter</p>
+<p>Shareholder's Citizenship :</p>
+<p>Previous License Details</p>
+<p>Previous License Number :</p>
+<p>Date of issue(DD/MM/YYYY): </p>
+<p>Expiry Date(DD/MM/YYYY):</p>
+<p>Fee Paid:</p>
+<p>State whether it is Branch/ Subsidiary License</p>
+<p>Principal License Number:</p>
+<p>Fee Paid:</p>
+<p>Have you been convicted for crime offence for the last 12 months: No</p>
+<p>Date of application (DD/MM/YYYY): 01/07/2020</p>
+<h1>Electronically Submitted Documents</h1>
+<p>Proof_of_Tanzanian_Citizenship.png</p>
+<p>Tax_Identification_No.jpg</p>
+<p>Title Deed_Lease Agreement.jpg</p>
+
+<p>Declaration</p>
+
+<p>I/We declare that the particulars given above are correct and complete to best of my/ our knowledge:</p>
+
+
+
+
+
+</div><!--ni yeye-->
+
+
+
+
+
+
+
+
+	</div>
+
+
+
+</body>
+</html>

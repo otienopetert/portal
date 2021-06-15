@@ -1,0 +1,32 @@
+{% extends 'admin/main.html '%}
+
+{% block content %}
+
+<div class="row">
+	
+
+
+    <div class="col-md-6">
+
+
+	     <div class="card card-body container">
+
+<p>Are you sure you want to business category {{bc.name}}</p>
+
+<form action="{% url 'delete_bc' bc.id %}" method="POST">
+	{% csrf_token %}
+	
+<a href="{% url 'managebc' %}" class="btn btn-warning">cancel
+</a>
+<input type="submit" name="confirm" class="btn btn-danger btn-sm" value="confirm">
+</form>
+
+
+        </div>
+
+   </div>
+
+
+</div>
+
+{% endblock %}

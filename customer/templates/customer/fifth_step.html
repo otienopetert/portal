@@ -1,0 +1,81 @@
+{% extends 'customer/main.html '%}
+
+{% block content %}
+
+
+<div class="row">
+
+	<div class="col-md-2"></div>
+	<div class="col-md-6">
+		      {% if messages %}
+       {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+       {% endfor %}
+     {% endif %}
+
+  <h3>SELECT THE BUSINESS CATEGORY : - </h3>
+
+<div class="alert alert-secondary">
+  <h5> What kind of Business?</h5>
+  <form method="post" action="{% url 'stepfive' %}">
+    {% csrf_token %}
+    <label>Types of Business Category</label>
+    <select name="businesscategory">
+      {% for businesscategory in businesscategory%}
+      <option value="{{businesscategory.name}}">{{businesscategory.name}}</option>
+      {% endfor %}
+
+    </select>
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+  
+</div>
+<!--<form method="post" action="{% url 'stepfive' %}">
+{% csrf_token %}
+
+	
+{{form}}
+
+<button type="submit" class="btn btn-success">Submit</button>
+
+</form>-->
+
+
+	</div>
+	<div class="col-md-4"></div>
+
+</div>
+
+
+<!--<script type="text/javascript">
+  var form_fields = document.getElementsByTagName('input')
+
+    for (var field in form_fields){
+   // form_fields[field].className += 'form-control '
+    //form_fields[field].required;
+  }
+  
+  //form_fields[1].className = 'form-control'
+
+  //form_fields[2].className = 'form-control'
+
+  /*
+  form_fields[3].placeholder='Enter license Number';
+  form_fields[4].type='date';
+  form_fields[5].type='date';
+  form_fields[6].type='number';*/
+
+
+
+
+</script>-->
+
+
+
+
+{% endblock %}

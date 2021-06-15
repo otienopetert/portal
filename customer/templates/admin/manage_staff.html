@@ -1,0 +1,56 @@
+{% extends 'admin/main.html '%}
+
+{% block content %}
+{% include 'admin/add_products.html' %}
+
+
+
+
+<div class="container" align="center">
+
+  <h1><a href="#" class="btn btn-warning btn-lg">STAFF DASHBOARD</a></h1>
+              
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+
+    </tr>
+
+  </tbody>
+  </table>
+</div>
+
+
+<script type="text/javascript">
+  var form_fields = document.getElementsByTagName('input')
+
+    for (var field in form_fields){
+    form_fields[field].className += 'form-control'
+    form_fields[field].required;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+{% endblock %}

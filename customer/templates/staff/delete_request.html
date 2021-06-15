@@ -1,0 +1,32 @@
+{% extends 'staff/main.html '%}
+
+{% block content %}
+
+<div class="row">
+	
+
+
+    <div class="col-md-6">
+
+
+	     <div class="card card-body container">
+
+<p>Are you sure you process well the request of customer {{cr.customer}} </p>
+
+<form action="{% url 'delete_crequest' cr.id %}" method="POST">
+	{% csrf_token %}
+	
+<a href="{% url 'new-request' %}" class="btn btn-warning">cancel
+</a>
+<input type="submit" name="confirm" class="btn btn-danger btn-sm" value="delete">
+</form>
+
+
+        </div>
+
+   </div>
+
+
+</div>
+
+{% endblock %}

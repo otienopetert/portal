@@ -1,0 +1,110 @@
+{% load static %}
+
+<div class=""><!--fixed Top-->
+
+
+  	<nav class="navbar navbar-light bg-light">
+
+  <a class="navbar-brand"><img src="{% static '/images/layout_set_logo.png' %}" class="img-fluid"></a>
+  <a href="{% url 'signin' %}" class="btn btn-success"><i> </i> Sign In</a>
+
+    </nav>
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <br>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+   <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Services
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'stepone' %}">Bussiness Licensing Services</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+      </div>
+    </li>
+    
+
+     <!-- <li class="nav-item">
+        <a class="nav-link" href="#">Market Information</a>
+      </li>-->
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">How do I</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">Directory</a>
+      </li>
+<!--{% if request.user.is_admin %}-->      
+<!--{% endif %} --> 
+
+      <!--<li class="nav-item">
+        <a class="nav-link" href="#">Collaboration</a>
+      </li>
+-->
+      <li class="nav-item">
+        <a class="nav-link" href="#">About Us</a>
+      </li>
+
+
+
+
+
+       <!--<li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{ request.user}}</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}" tabindex="-1" aria-disabled="true">logout</a>
+      </li>-->
+
+    
+    <form class="form-inline my-2 my-lg-0">
+      {% csrf_token %}
+      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+
+
+    {% if request.user.is_authenticated %}
+
+
+
+        <li class="nav-item dropdown ">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        {{ request.user }}
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'myprofile' %}">my profile</a>
+
+        <span  style='font-size:14px'><a class="dropdown-item" href="{% url 'logout' %}">logout<i class='fas fa-power-off'></i></a></span>
+      </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="">Dashboard</a>
+    </li>
+    
+    {% endif %}
+
+
+
+    </ul>
+  </div>
+</nav>
+
+
+</div><!--fixed Top-->

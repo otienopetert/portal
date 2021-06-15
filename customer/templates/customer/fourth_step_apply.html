@@ -1,0 +1,99 @@
+{% extends 'customer/main.html '%}
+
+{% block content %}
+
+	
+
+<h1 class="container bg-info">Previous License Details</h1>
+<div class="progress container">
+  <div class="progress-bar progress-bar-striped bg-warning" style="width:60%">60</div>
+</div>
+<!--
+<div class="spinner-border text-muted"></div>
+<div class="spinner-border text-primary"></div>
+<div class="spinner-border text-success"></div>
+<div class="spinner-border text-info"></div>
+<div class="spinner-border text-warning"></div>
+<div class="spinner-border text-danger"></div>
+<div class="spinner-border text-secondary"></div>
+<div class="spinner-border text-dark"></div>
+<div class="spinner-border text-light"></div>-->
+
+<form action="{% url 'fourthstep' %}" method="post">
+	
+{% csrf_token %}
+
+
+
+<div class="container">
+
+
+
+
+<div class="row">
+	
+
+<div class="col-md-4"></div><!--col-ms-4-->
+
+
+
+
+
+
+<div class="col-md-4">
+
+	<label>License Number</label>
+	{{form.licensenumber}}
+	<label>Date Issue</label>
+    {{form.date_issue}}
+	<label>Expire Date</label>
+	{{form.expiredate}}
+	<label>Fee Paid</label>
+	{{form.feepaid}}
+    <input type="submit" name="" class="btn btn-success btn-success" value="save">
+    <a href="{% url 'stepfive' %}" class="btn btn-primary" disabled>
+  <span class="spinner-grow spinner-grow-lg"></span>
+  Next
+</a>
+	
+</div><!--col-ms-4-->
+
+
+<div class="col-md-4">
+  
+
+
+</div><!--col-ms-4-->
+
+
+
+</div><!--row-->
+
+
+	
+</div><!--container-->
+
+
+</form>
+<script type="text/javascript">
+  var form_fields = document.getElementsByTagName('input')
+
+    for (var field in form_fields){
+    form_fields[field].className += 'form-control '
+    form_fields[field].required;
+  }
+  form_fields[1].placeholder='';
+  form_fields[2].placeholder='';
+  form_fields[3].placeholder='Enter license Number';
+  form_fields[4].type='date';
+  form_fields[5].type='date';
+  form_fields[6].type='number';
+
+
+
+
+</script>
+
+
+
+{% endblock %}

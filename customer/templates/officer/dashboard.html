@@ -1,0 +1,220 @@
+{% extends 'admin/main.html '%}
+
+{% block content %}
+
+
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-md-4">
+<h1>OFFICER DASHBOARD</h1>
+        <div class="card mx-auto">
+          <img class="card-img-top mx-auto" style="width:60%;" src="{{request.user.customer.profile_pic.url}}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Profile Info</h4>
+            <p class="card-text"><i class="fa fa-user">&nbsp;</i>Name: {{request.user}}</p>
+            <p class="card-text"><i class="fa fa-user">&nbsp;</i>Role:Staff</p>
+            Department : Business<br>
+            
+
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="col-md-8">
+        <div class="jumbotron">
+          <h1>Welcome Admin,</h1>
+          <div class="row">
+            <div class="col-sm-6">
+              <iframe src="" frameborder="0" width="160" height="160"></iframe>
+
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">New Request</h4>
+                    <p class="card-text">Here you can make Add New Order,Delete and Edit orders</p>
+                    <a href="{% url 'new-request' %}" class="btn btn-success">View-New</a>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <p></p>
+  <p></p>
+
+
+
+  <div class="container">
+    <div class="row">
+
+
+
+      <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+            <h4 class="card-title">Business Categories</h4>
+            <p class="card-text">Here you can manage your categories and you add new parent and sub categories</p>
+            <a href="#" data-toggle="modal" data-target="#form_addcategory" class="btn btn-success">Add</a>
+            <a href="{% url 'managebc' %}" class="btn btn-success">manage</a>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+            <h4 class="card-title">Staff</h4>
+            <p class="card-text">Here you can manage your staff you can add delete and edit the customer details</p>
+            <a href="#" data-toggle="modal" data-target="#form_addstaff" class="btn btn-success">Add</a>
+            <a href="#" class="btn btn-success">Manage</a>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+            <h4 class="card-title">Business-Officer</h4>
+            <p class="card-text">Here you can manage your Business Officer's and you add new products</p>
+            <a href="#" data-toggle="modal" data-target="#form_addproducts" class="btn btn-success">Add</a>
+            <a href="#" class="btn btn-success">Manage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Modal Add business category -->
+<div class="modal fade" id="form_addcategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Business-Category</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+      <div class="modal-body">
+
+        <form  method="post" action="{% url 'admin-dashboard' %}">
+            {% csrf_token %}
+            {{form_bc.as_p}}
+         <!--<div class="form-group">
+            <label> Business-Category Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Enter Category Name">
+            <small class="form-text text-muted"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="description"> Business-Category Price</label>
+            <input type="text" class="form-control" name="description" placeholder="Enter Description">
+            <small class="form-text text-muted"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="description"> Business-Category Description</label>
+            <input type="text" class="form-control" name="description" placeholder="Enter Description">
+            <small class="form-text text-muted"></small>
+          </div>-->
+
+<button type="submit" class="btn btn-success">save</button>          
+      </form>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Modal Add business Staff -->
+<div class="modal fade" id="form_addstaff" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Staff</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+      <div class="modal-body">
+
+        <form  method="post" action="{% url 'admin-dashboard' %}">
+            {% csrf_token %}
+            {{form_staff.as_p}}
+         <!--<div class="form-group">
+            <label> Business-Category Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Enter Category Name">
+            <small class="form-text text-muted"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="description"> Business-Category Price</label>
+            <input type="text" class="form-control" name="description" placeholder="Enter Description">
+            <small class="form-text text-muted"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="description"> Business-Category Description</label>
+            <input type="text" class="form-control" name="description" placeholder="Enter Description">
+            <small class="form-text text-muted"></small>
+          </div>-->
+
+<button type="submit" class="btn btn-success">save</button>          
+      </form>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  var form_fields = document.getElementsByTagName('input')
+
+    for (var field in form_fields){
+    form_fields[field].className += 'form-control'
+    form_fields[field].required;
+  }
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'staff/main.html '%}
+
+{% block content %}
+
+<div class="row">
+	
+
+
+    <div class="col-md-6">
+
+
+	     <div class="card card-body container">
+
+<p>Are you sure you process well the request of customer {{username}}</p>
+
+<form action="{% url 'verify-request' username %}" method="POST">
+	{% csrf_token %}
+	
+<a href="{% url 'new-request' %}" class="btn btn-warning">cancel
+</a>
+<input type="submit" name="confirm" class="btn btn-danger btn-sm" value="Yes">
+<p>After verifying by Yes you may return back<a href="{% url 'new-request' %}" class="btn btn-info btn-sm"><--Back</a></p>
+</form>
+
+
+        </div>
+
+   </div>
+
+
+</div>
+
+{% endblock %}

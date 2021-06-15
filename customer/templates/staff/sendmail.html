@@ -1,0 +1,83 @@
+{% extends 'staff/main.html '%}
+
+{% block content %}
+
+
+
+
+<div class="row">
+  
+  <div class="col-md-6 card card-body">
+
+
+     <h5>Send Instruction Mail To Customer</h5>
+
+        <form  method="post" action="{% url 'instruction-mail' username %}">
+            {% csrf_token %}
+         <div class="form-group">
+            <label>customer email</label>
+            <input type="text" class="form-control" name="email" value="{{customer.email}}">
+            <small class="form-text text-muted"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Email Body</label>
+            <textarea class="form-control" name="message" placeholder="Enter Instruction message"></textarea>
+            
+            <small class="form-text text-muted"></small>
+          </div>
+
+          <!--<div class="form-group">
+            <label for="description"> Business-Category Description</label>
+            <input type="text" class="form-control" name="description" placeholder="Enter Description">
+            <small class="form-text text-muted"></small>
+          </div>-->
+
+<button type="submit" class="btn btn-success">save</button>  
+<p>After verifying by Yes you may return back<a href="{% url 'new-request' %}" class="btn btn-info btn-sm"><--Back</a></p>        
+      </form>
+
+{% if messages %}
+<div class="alert alert-success">
+  <strong>{{ message }}</strong> 
+</div>
+{% endif %}
+
+    
+  </div>
+
+  <div class="col-md-6"></div>
+</div>
+
+
+ 
+
+     
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  var form_fields = document.getElementsByTagName('input')
+
+    for (var field in form_fields){
+   // form_fields[field].className += 'form-control'
+    form_fields[field].required;
+  }
+</script>
+
+
+
+{% endblock %}
+
+
+
+
+

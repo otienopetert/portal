@@ -1,0 +1,98 @@
+{% extends 'customer/main.html '%}
+
+{% block content %}
+
+<div class="row">
+
+<div class="col-md-8"><h5 class="text-center"> Business Portal Registration Form</h5></div>
+
+<div class="col-md-4"></div>
+
+</div>
+
+
+<form action="{% url 'signup' %}" method="POST">
+  {% csrf_token%}
+
+<div class="container">
+
+  <div class="row">
+
+
+
+  <div class="col-md-4">
+    
+
+    <label for="username">UserName:</label><br>
+    <small class="text-danger">{{form.username.errors}}</small>
+    {{form.username}}
+    <label for="first_name">First Name</label><br>
+    <small class="text-danger">{{form.first_name.errors}}</small>
+    {{form.first_name}}
+    <label for="last_name">Last Name</label><br>
+    <small class="text-danger">{{form.last_name.errors}}</small>
+    {{form.last_name}}
+    <label for="email">Email address:</label><br>
+    <small class="text-danger">{{form.email.errors}}</small>
+    {{form.email}}  
+
+  </div>
+
+
+  <div class="col-md-4">
+
+<label for="pwd">Password:</label><br>
+<small class="text-danger">{{form.password1.errors}}</small>
+    {{form.password1}}
+<label for="pwd">Password:</label><br>
+<small class="text-danger">{{form.password2.errors}}</small>
+    {{form.password2}}
+    <strong><ul>
+      <li>Your password can’t be too similar to your other personal information.</li>
+      <li>Your password must contain at least 8 characters.</li>
+      <li>Your password can’t be a commonly used password.</li>
+      <li>Your password can’t be entirely numeric.</li>
+    </ul></strong>
+<label class="form-check-label"><br>
+      <input class="form-check-input" type="checkbox"> Remember me
+</label>
+    <button type="submit" class="btn btn-success">Register</button> or
+    <a href="{% url 'signin' %}">login</a>
+
+  </div><!--col-md-4-->
+
+
+
+
+
+<div class="col-md-4"></div>
+
+
+</div><!--row-->
+</div><!--container-->
+
+</form>
+
+<script type="text/javascript">
+  var form_fields = document.getElementsByTagName('input')
+  
+  form_fields[1].placeholder='';
+  form_fields[2].placeholder='Enter Your full Name';
+  form_fields[3].placeholder='Enter Your full Name';
+  form_fields[4].placeholder='Enter First Name';
+  form_fields[5].placeholder='Enter Last Name';
+  form_fields[6].placeholder='Enter Email';
+  form_fields[7].placeholder='Enter Password';
+  form_fields[8].placeholder='Re-Enter Password';
+
+
+
+for (var field in form_fields){
+    form_fields[field].className += 'form-control '
+
+  }
+
+</script>
+
+
+{% endblock %}

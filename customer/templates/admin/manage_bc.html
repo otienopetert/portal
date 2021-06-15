@@ -1,0 +1,48 @@
+{% extends 'admin/main.html '%}
+
+{% block content %}
+{% include 'admin/add_products.html' %}
+
+<div class="container" align="center">
+
+  <h1><a href="#" class="btn btn-warning btn-lg"> CATEGORY DASHBOARD FOR ADMIN</a></h1>
+              
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>CategoryName</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+  {% for bc in bc %}
+    <tr>
+    <td>{{bc.name}}</td>
+    <td>{{bc.price}}</td>
+    <td>{{bc.descriptio}}</td>
+    <td><a href="{% url 'update_bc' bc.id %}" class="btn btn-success btn-sm">update</a></td>
+    <td><a href="{% url 'delete_bc' bc.id %}" class="btn btn-success btn-sm">Delete</a></td>
+
+    </tr>
+{% endfor %}
+
+  </tbody>
+  </table>
+</div>
+
+
+<script type="text/javascript">
+  var form_fields = document.getElementsByTagName('input')
+
+    for (var field in form_fields){
+    form_fields[field].className += 'form-control'
+    form_fields[field].required;
+  }
+</script>
+
+
+{% endblock %}

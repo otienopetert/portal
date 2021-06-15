@@ -1,0 +1,120 @@
+{% extends 'customer/main.html '%}
+
+{% block content %}
+
+
+<div class="row">
+	
+
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		
+
+
+
+
+<form action="{% url 'register' %}" method="POST">
+
+  {% csrf_token %}
+  <div class="row">
+
+    <div class="col-md-4">
+        <label>First Name</label>
+      {{ form.fname }}
+      
+        <label>Middle Name</label>
+      {{ form.mname }}
+
+        <label>Last Name</label>
+       {{ form.lname }}
+
+        <label>Email Address</label>
+          <div style="background-color: #E0FFFF">
+          <small class="text-danger">{{ warning }}</small>
+          </div>  
+      {{ form.email }}
+
+        <label>Mobile Number</label>
+      {{ form.phone }}
+
+    </div>
+
+    <div class="col-md-4">
+       {% if messages %}
+    {% for message in messages %}
+
+    <small class="text-danger">{{ message }}</small>
+    
+    {% endfor %}
+{% endif %}
+    	 <label>Password</label>
+      {{ form.password1 }}
+
+      <label>Confirm Password</label>
+       {{ form.password2 }}
+
+      <label>Gender</label>
+       {{ form.gender }}
+
+    </div>
+    
+
+<div class="row col-md-8">
+
+<a href="" class="text-primary">Terms And Conditions.*
+</a>
+{{ form.terms }}
+<small class="text-danger">Please accept the Terms And Condition before proceeding</small>
+
+</div>
+
+<div class="row col-md-8">
+	
+	<button type="submit" class="btn btn-success">Submit</button>
+  <br>
+    <div><strong>Already have an Account...</strong><a href="{% url 'login' %}" class="text-info">Login</a></div> 
+
+</div>
+
+  </div>
+</form>
+<script type="text/javascript">
+  var form_fields = document.getElementsByTagName('input')
+  form_fields[1].placeholder='';
+  form_fields[2].placeholder='Enter first name';
+  form_fields[3].placeholder='Enter Middle name';
+  form_fields[4].placeholder='Enter last Name';
+  form_fields[5].placeholder='Enter email';
+  form_fields[6].placeholder='phone';
+  form_fields[7].placeholder='Enter password';
+  form_fields[8].placeholder='Re-Enter password';
+  form_fields[9].placeholder='gender';
+  form_fields[10].placeholder='terms';
+  for (var field in form_fields){
+    form_fields[field].className += 'form-control '
+    form_fields[field].required;
+
+  }
+  form_fields[1].placeholder='';
+  form_fields[2].placeholder='Enter first name';
+  form_fields[3].placeholder='Enter Middle name';
+  form_fields[4].placeholder='Enter last Name';
+  form_fields[5].type='Enter email';
+  form_fields[6].placeholder='phone';
+  form_fields[7].password='Enter password';
+  form_fields[8].password='Re-Enter password';
+  form_fields[9].placeholder='gender';
+  form_fields[10].checkbox='terms';
+
+
+</script>
+
+
+
+	</div>
+	<div class="col-md-2"></div>
+
+
+</div><!--row-->
+
+{% endblock %}

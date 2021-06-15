@@ -1,0 +1,129 @@
+{% extends 'customer/main.html '%}
+
+{% block content %}
+
+	
+
+<h1 class="container bg-info">Business Details</h1>
+<div class="progress container">
+  <div class="progress-bar progress-bar-striped bg-warning" style="width:60%">60</div>
+</div>
+<!--
+<div class="spinner-border text-muted"></div>
+<div class="spinner-border text-primary"></div>
+<div class="spinner-border text-success"></div>
+<div class="spinner-border text-info"></div>
+<div class="spinner-border text-warning"></div>
+<div class="spinner-border text-danger"></div>
+<div class="spinner-border text-secondary"></div>
+<div class="spinner-border text-dark"></div>
+<div class="spinner-border text-light"></div>-->
+      {% if messages %}
+       {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+       {% endfor %}
+     {% endif %}
+
+<form action="{% url 'thirdstep' %}" method="post">
+	{% csrf_token %}
+
+
+<div class="container">
+
+
+
+
+<div class="row">
+	
+
+<div class="col-md-3">
+
+	<label>Tin Number</label>
+	{{form.tinnumber}}
+	<label>Manager Name</label>
+	{{form.managername}}
+	<label>Email</label>
+	{{form.email}}
+	<label>Nationality</label>
+	{{form.nationality}}
+	<label>Address Info</label>
+	{{form.addressinfo}}
+	
+</div><!--col-ms-4-->
+
+
+
+<div class="col-md-3">
+
+
+	<label>Region</label>
+	{{form.region}}
+	<label>District</label>
+	{{form.district}}
+	<label>Ward</label>
+	{{form.ward}}
+	<label>Village</label>
+	{{form.village}}
+	<label>SubVillage</label>
+	{{form.subvillage}}
+	
+</div><!--col-ms-4-->
+
+
+<div class="col-md-3">
+
+	<label>Street</label>
+	{{form.street}}
+	<label>Road</label>
+	{{form.road}}
+	<label>Plotnumber</label>
+	{{form.plotnumber}}
+	<label>Block Number</label>
+	{{form.blocknumber}}
+	<label>House Number</label>
+	{{form.housenumber}}
+	
+</div><!--col-ms-4-->
+
+
+<div class="col-md-3">
+
+	<label>P.o Box</label>
+	{{form.pobox}}
+	<label>Postal City</label>
+	{{form.postalcity}}
+	<label>Phone Number</label>
+	{{form.phonenumber}}
+	<input type="submit" name="" class="btn btn-success btn-success">
+
+</div><!--col-ms-4-->
+
+
+
+
+</div><!--row-->
+
+
+	
+</div><!--container-->
+
+
+</form>
+<script type="text/javascript">
+  var form_fields = document.getElementsByTagName('input')
+
+    for (var field in form_fields){
+    form_fields[field].className += 'form-control '
+    form_fields[field].required;
+  }
+
+</script>
+
+
+
+{% endblock %}

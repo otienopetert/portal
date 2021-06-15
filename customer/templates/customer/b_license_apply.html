@@ -1,0 +1,110 @@
+{% extends 'customer/main.html '%}
+
+{% block content %}
+
+	
+
+<h1 class="bg-warning">Applicant Personal details</h1>
+<div>Progress</div>
+<div class="progress container">
+	
+  <div class="progress-bar progress-bar-striped bg-warning" style="width:3%">3%</div>
+</div>
+<div class="spinner-border text-muted"></div><!-- 
+<div class="spinner-border text-primary"></div>
+<div class="spinner-border text-success"></div>
+<div class="spinner-border text-info"></div>
+<div class="spinner-border text-warning"></div>
+<div class="spinner-border text-danger"></div>
+<div class="spinner-border text-secondary"></div>
+<div class="spinner-border text-dark"></div>
+<div class="spinner-border text-light"></div> -->
+
+<form action="{% url 'stepone' %}" method="post">
+	{% csrf_token %}
+
+
+
+
+<div class="container">
+
+
+
+
+<div class="row">
+	
+
+<div class="col-md-4">
+
+	<label>First Name</label>
+	<small class="text-danger">{{form.fname.errors}}</small>
+	{{form.fname}}
+	<label>Middle Name</label>
+	<small class="text-danger">{{form.mname.errors}}</small>
+	{{form.mname}}
+	<label>Last Name</label>
+	<small class="text-danger">{{form.lname.errors}}</small>
+	{{form.lname}}
+	
+	
+</div><!--col-ms-4-->
+
+
+
+<div class="col-md-4">
+
+	<label>Email</label>
+	<small class="text-danger">{{form.email.errors}}</small>
+	{{form.email}}
+	<label>Phone</label>
+	<small class="text-danger">{{form.phone.errors}}</small>
+	{{form.phone}}<br>
+	<label>Gender</label>
+	<small class="text-danger">{{form.gender.errors}}</small>
+	{{form.gender}}<br>
+	<label>Date of Birth</label>
+	<small class="text-danger">{{form.dob.errors}}</small>
+	{{form.dob}}
+	
+	<span><input type="submit" name="" class="btn btn-success btn-success" value="save"></span>
+
+</div><!--col-ms-4-->
+
+
+
+
+
+</div><!--row-->
+
+
+	
+</div><!--container-->
+
+
+</form>
+<script type="text/javascript">
+  var form_fields = document.getElementsByTagName('input')
+
+    for (var field in form_fields){
+    form_fields[field].className += 'form-control '
+    form_fields[field].required;
+  }
+ form_fields[3].placeholder='Enter First Name';
+ form_fields[4].placeholder='Enter Middle Name';
+ form_fields[5].placeholder='Enter Last Name';
+ form_fields[6].placeholder='Enter Email';
+ form_fields[7].placeholder='Enter Phone Number';
+  /*
+form_fields[1].placeholder='Enter First Name';
+form_fields[3].placeholder='Enter Last Name';
+form_fields[4].type='email';
+form_fields[6].placeholder='Enter Last Email';
+form_fields[5].type='email';
+*/
+form_fields[6].name='email';
+form_fields[8].type='date';
+</script>
+
+
+
+{% endblock %}
